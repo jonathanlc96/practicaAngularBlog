@@ -1,1 +1,38 @@
-<p>new-post works!</p>
+<div class="mt-3">
+    <form [formGroup]="newPostForm" (ngSubmit)="getDataPost()">
+        <div>
+            <label class="form-label" for="title">Titulo</label>
+            <input type="text" id="title" formControlName="title" placeholder="introduce titulo del post"
+                class="form-control">
+
+        </div>
+
+        <div>
+            <label class="form-label" for="author">Autor</label>
+            <input type="text" id="author" formControlName="author" placeholder="introduce el autor"
+                class="form-control">
+        </div>
+
+        <div>
+            <label class="form-label" for="text">Texto</label>
+            <input type="text" id="text" formControlName="text" placeholder="introduce el texto" class="form-control">
+
+        </div>
+        <div>
+            <label class="form-label" for="image">Imagen</label>
+            <input type="file" id="image" formControlName="image" placeholder="selecciona tu imágen"
+                class="form-control">
+        </div>
+        <div>
+            <label class="form-label" for="date">Fecha</label>
+            <input type="date" id="date" formControlName="date" class="form-control">
+        </div>
+        <div>
+            <app-select-category></app-select-category>
+        </div>
+
+        <div class="mt-3">
+            <input type="submit" class="btn btn-info" value="Enviar" [disabled]="newPostForm.invalid">
+        </div>
+    </form>
+</div>
