@@ -11,11 +11,11 @@ export class PostsService {
   private postslist: IPost[] = POSTS;
   private categoriesList: ICategory[] = CATEGORIES;
 
-  getAllPosts() {
+  getAllPosts(): IPost[] {
     return this.postslist;
   }
-  getAllCategories() {
-    return this.getAllCategories;
+  getAllCategories(): ICategory[] {
+    return this.categoriesList;
   }
 
 }
