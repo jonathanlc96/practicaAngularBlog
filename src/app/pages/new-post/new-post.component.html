@@ -6,13 +6,15 @@
                     <label class="form-label" for="title">Titulo</label>
                     <input type="text" id="title" formControlName="title" placeholder="introduce título del post"
                         class="form-control">
-
+                    @if(checkFieldError('title', 'required')){
+                    <p class="error">Campo obligatorio</p>
+                    }
                 </div>
 
                 <div>
                     <label class="form-label" for="text">Texto</label>
-                    <input type="text" id="text" formControlName="text" placeholder="introduce el texto"
-                        class="form-control">
+                    <textarea rows="4" cols="30" id="text" formControlName="text" placeholder="introduce el texto"
+                        class="form-control"></textarea>
 
                 </div>
 

@@ -28,7 +28,12 @@ export class NewPostComponent {
       text: new FormControl("", [
         Validators.required
       ]),
-      image: new FormControl(),
+      image: new FormControl("", [
+        Validators.required,
+        Validators.pattern(/^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)*(\?.*)?$/
+        )
+      ]
+      ),
       date: new FormControl(),
       category: new FormControl()
     }, []);
@@ -49,6 +54,12 @@ export class NewPostComponent {
     // // alert(respuesta.message)
     //console.log(this.newPostForm.value)
     this.newPostForm.reset();
+  }
+  checkFieldError(field: string, error: string): boolean {
+    if (this.newPostForm.get(field)?.hasError(error) && this.newPostForm.get(field)?.touched) {
+      return true;
+    }
+    return false;
   }
 
 }

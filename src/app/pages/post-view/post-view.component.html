@@ -1,1 +1,20 @@
-<p>post-view works!</p>
+<section class="container my-3">
+    <div class="card">
+        <div class="row">
+            <figure class="col-12 col-md-4 p-4">
+                <img class="img" [src]="post.image" [alt]="post.title">
+            </figure>
+            <div class="col-12 col-md-8 p-4">
+                <h1> {{post.title}}</h1>
+                <p>Fecha: {{post.date}}</p>
+                <p>Author: {{post.author}}</p>
+                <p>Categoría: {{post.category.titleC}}</p>
+                <p> {{post.text}}</p>
+
+                <button class="btn btn-danger" [routerLink]="['/home']">Volver al blog</button>
+            </div>
+
+        </div>
+    </div>
+
+</section>

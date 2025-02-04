@@ -30,6 +30,9 @@ export class BlogService {
   getAllCategories(): ICategory[] {
     return this.categoriesList;
   }
+  getPostById(idPost: number): IPost | undefined {
+    return this.postslist.find(post => post.id === idPost)
+  }
 
 
 

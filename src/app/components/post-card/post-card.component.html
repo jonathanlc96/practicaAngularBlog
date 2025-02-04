@@ -3,9 +3,8 @@
 
         <div>
             <h3>{{miPost.title}}</h3>
-            <p>Autor: {{miPost.author}}</p>
             <p> Categoria: {{miPost.category.titleC}}</p>
-            <button class="btn btn-sm btn-danger">Ver detalle</button>
+            <button class="btn btn-sm btn-danger" [routerLink]="['/post', miPost.id]">Ver detalle</button>
         </div>
     </div>
 </div>
