@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
-import { PostsService } from '../../services/posts.service';
+import { BlogService } from '../../services/blog.service';
 import { ICategory } from '../../interfaces/icategory.interface';
 
 @Component({
@@ -10,18 +10,22 @@ import { ICategory } from '../../interfaces/icategory.interface';
 })
 export class SelectCategoryComponent {
 
-  @Output() seleccionEmitida: EventEmitter<string> = new EventEmitter();
+  @Output() seleccionEmitida: EventEmitter<ICategory> = new EventEmitter();
   categoriesList: ICategory[] = [];
-  categoriesService = inject(PostsService)
+  categoriesService = inject(BlogService)
 
   ngOnInit() {
-    //llamando al servicio
     this.categoriesList = this.categoriesService.getAllCategories();
   }
 
+  categorySelected(event: any) {
+    const categoryTitle = event.target.value;
+    const selectedCategory = this.categoriesList.find(cat => cat.titleC === categoryTitle);
 
-  getCategory(event: any) {
-    //aqui tengo la seleccion la mando al padre 
-    this.seleccionEmitida.emit(event.target.value)
+    if (selectedCategory) {
+      this.seleccionEmitida.emit(selectedCategory);
+      console.log(selectedCategory)
+    }
   }
+
 }

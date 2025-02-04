@@ -6,10 +6,23 @@ import { ICategory } from '../interfaces/icategory.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class PostsService {
+export class BlogService {
 
   private postslist: IPost[] = POSTS;
   private categoriesList: ICategory[] = CATEGORIES;
+  private id: number = 1;
+
+  insertPost(newPost: IPost): any {
+    if (this.postslist.length > 0) {
+      newPost.id = this.postslist[this.postslist.length - 1].id + 1;
+    } else {
+      newPost.id = this.id;
+    }
+
+    this.postslist.push(newPost);
+    console.log(this.postslist)
+    return { message: 'post insertado correctamente' }
+  }
 
   getAllPosts(): IPost[] {
     return this.postslist;
@@ -17,5 +30,7 @@ export class PostsService {
   getAllCategories(): ICategory[] {
     return this.categoriesList;
   }
+
+
 
 }

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { IPost } from '../../interfaces/ipost.interface';
-import { PostsService } from '../../services/posts.service';
+import { BlogService } from '../../services/blog.service';
 import { PostCardComponent } from "../../components/post-card/post-card.component";
 
 @Component({
@@ -11,9 +11,10 @@ import { PostCardComponent } from "../../components/post-card/post-card.componen
 })
 export class PostsListComponent {
   arrPosts: IPost[] = [];
-  postsService = inject(PostsService);
+  postsService = inject(BlogService);
 
   ngOnInit() {
     this.arrPosts = this.postsService.getAllPosts();
+    console.log(this.arrPosts);
   }
 }

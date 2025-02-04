@@ -1,4 +1,4 @@
-<select (change)="getCategory($event)" class="form-select my-3">
+<select (change)="categorySelected($event)" class="form-select my-3">
     <option value="">Selecciona una categoria</option>
     @for(category of categoriesList; track category.idC){
     <option [value]="category.titleC">{{category.titleC}}</option>
