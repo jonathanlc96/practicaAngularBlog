@@ -1,13 +1,13 @@
-<div class="card p-3 shadow-sm">
-    <div class="d-flex gap-5">
-
-        <div>
-            <h3>{{miPost.title}}</h3>
+<div class="card p-3 shadow-sm h-100">
+    <div class="d-flex flex-column h-100">
+        <div class="flex-grow-1">
+            <h3 class="titlePost">{{miPost.title}}</h3>
             <figure>
-                <img class="img" [src]="miPost.image" [alt]="miPost.title">
+                <img class="img-fluid" [src]="miPost.image" [alt]="miPost.title">
             </figure>
-            <p> Categoria: {{miPost.category.titleC}}</p>
-            <button class="btn btn-sm btn-danger" [routerLink]="['/post', miPost.id]">Ver detalle</button>
+        </div>
+        <div>
+            <button class="btn btn-sm btn-info" [routerLink]="['/post', miPost.id]">Ver detalle</button>
         </div>
     </div>
 </div>

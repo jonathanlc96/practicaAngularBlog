@@ -27,7 +27,12 @@ export class PostsListComponent {
 
   selectByCategory(event: ICategory) {
 
-    this.arrPosts = this.postsService.getByCategory(event);
+    //si me llega un objeto vacio con id=0 entonces muestro toda la lista de posts, es decir si en el selector elijo "Selecciona una categoria" muestra toda la lista de posts sino muestro una lista según la categoría
+    if (event.idC !== 0) {
+      this.arrPosts = this.postsService.getByCategory(event);
+    } else {
+      this.arrPosts = this.postsService.getAllPosts();
+    }
   }
   selectByTitleCategory(event1: string, event2: ICategory) {
     this.arrPosts = this.postsService.getByTitleCategory(event1, event2);

@@ -9,9 +9,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class TitleSearchComponent {
   @Output() busquedaEmitida: EventEmitter<string> = new EventEmitter();
 
-
-
-
   getInputTitle(event: any) {
     this.busquedaEmitida.emit(event.target.value)
   }

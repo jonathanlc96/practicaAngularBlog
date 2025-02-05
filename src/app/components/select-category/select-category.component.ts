@@ -24,7 +24,9 @@ export class SelectCategoryComponent {
 
     if (selectedCategory) {
       this.seleccionEmitida.emit(selectedCategory);
-      console.log(selectedCategory)
+
+    } else {
+      this.seleccionEmitida.emit({ idC: 0, titleC: '' });
     }
   }
 

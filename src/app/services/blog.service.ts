@@ -20,8 +20,8 @@ export class BlogService {
     }
 
     this.postslist.push(newPost);
-    console.log(this.postslist)
-    return { message: 'post insertado correctamente' }
+
+    return { message: 'Post añadido correctamente' }
   }
 
   getAllPosts(): IPost[] {
