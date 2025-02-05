@@ -3,6 +3,9 @@
 
         <div>
             <h3>{{miPost.title}}</h3>
+            <figure>
+                <img class="img" [src]="miPost.image" [alt]="miPost.title">
+            </figure>
             <p> Categoria: {{miPost.category.titleC}}</p>
             <button class="btn btn-sm btn-danger" [routerLink]="['/post', miPost.id]">Ver detalle</button>
         </div>

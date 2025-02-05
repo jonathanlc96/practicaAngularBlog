@@ -34,6 +34,16 @@ export class BlogService {
     return this.postslist.find(post => post.id === idPost)
   }
 
+  getByTitle(titlePost: string): IPost[] {
+    return this.postslist.filter(posts => posts.title.toLowerCase().includes(titlePost.toLowerCase()))
+  }
 
+  getByCategory(categoryS: ICategory): IPost[] {
+    return this.postslist.filter(posts => posts.category.titleC === categoryS.titleC)
+  }
+
+  getByTitleCategory(titleP: string, categoryS: ICategory): IPost[] {
+    return this.postslist.filter(post => post.title.toLowerCase().includes(titleP.toLowerCase()) && post.category.titleC === categoryS.titleC);
+  }
 
 }

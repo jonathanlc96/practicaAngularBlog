@@ -15,13 +15,18 @@
                     <label class="form-label" for="text">Texto</label>
                     <textarea rows="4" cols="30" id="text" formControlName="text" placeholder="introduce el texto"
                         class="form-control"></textarea>
-
+                    @if(checkFieldError('text', 'required')){
+                    <p class="error">Campo obligatorio</p>
+                    }
                 </div>
 
                 <div>
                     <label class="form-label" for="author">Autor</label>
                     <input type="text" id="author" formControlName="author" placeholder="introduce el autor"
                         class="form-control">
+                    @if(checkFieldError('author', 'required')){
+                    <p class="error">Campo obligatorio</p>
+                    }
                 </div>
 
 
@@ -29,6 +34,12 @@
                     <label class="form-label" for="image">Imagen</label>
                     <input type="string" id="image" formControlName="image" placeholder="introduce una url válida"
                         class="form-control">
+                    @if(checkFieldError('image', 'required')){
+                    <p class="error">Campo obligatorio</p>
+                    }
+                    @if(checkFieldError('image', 'pattern')){
+                    <p class="error">Introduce una URL válida</p>
+                    }
                 </div>
                 <div>
                     <label class="form-label" for="date">Fecha</label>

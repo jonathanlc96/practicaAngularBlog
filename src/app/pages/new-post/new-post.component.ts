@@ -44,15 +44,13 @@ export class NewPostComponent {
     if (event === null) {
       alert('No se ha capturado ninguna categoría');
     } else {
-      console.log('Categoría recibida:', this.categoriaRecibida);
+      //console.log('Categoría recibida:', this.categoriaRecibida);
       this.newPostForm.patchValue({ category: this.categoriaRecibida });
     }
 
   }
   getDataPost() {
     const respuesta = this.postsService.insertPost(this.newPostForm.value);
-    // // alert(respuesta.message)
-    //console.log(this.newPostForm.value)
     this.newPostForm.reset();
   }
   checkFieldError(field: string, error: string): boolean {
